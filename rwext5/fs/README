@@ -1,0 +1,1 @@
+openssl enc -d aes-128-cbc -pass pass:filesystem -in flag
