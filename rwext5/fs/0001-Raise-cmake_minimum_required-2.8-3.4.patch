@@ -1,0 +1,24 @@
+From c75935a72c416bbec3d2dcd537d175179ac23146 Mon Sep 17 00:00:00 2001
+From: Fangrui Song
+Date: Sun, 18 Nov 2018 16:35:21 -0800
+Subject: [PATCH 1/7] Raise cmake_minimum_required: 2.8 -> 3.4
+
+See CMP0065, otherwise -rdynamic is unconditionally added to linked executable. These .dynsym symbols are not really useful.
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 68a9cb0..71eb24d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,5 +1,5 @@
+ project(lwext4 C)
+-cmake_minimum_required(VERSION 2.8)
++cmake_minimum_required(VERSION 3.4)
+ 
+ 
+ include_directories(${PROJECT_BINARY_DIR}/include)
+-- 
+2.19.1
+

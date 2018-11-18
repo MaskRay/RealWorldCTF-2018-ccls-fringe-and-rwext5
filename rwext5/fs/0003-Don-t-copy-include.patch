@@ -1,18 +1,18 @@
-From 81173d83314d3b1a6a72a512a126cae749c09f1e Mon Sep 17 00:00:00 2001
+From c6bb451ea04b812485d5b31a69eb433498f8eabe Mon Sep 17 00:00:00 2001
 From: Fangrui Song
 Date: Sat, 17 Nov 2018 15:03:32 -0800
-Subject: [PATCH 2/6] Don't copy include
+Subject: [PATCH 3/7] Don't copy include
 
 ---
  CMakeLists.txt | 7 +------
  1 file changed, 1 insertion(+), 6 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 68a9cb0..3d0554c 100644
+index 71eb24d..eec0993 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -2,6 +2,7 @@ project(lwext4 C)
- cmake_minimum_required(VERSION 2.8)
+ cmake_minimum_required(VERSION 3.4)
  
  
 +include_directories(include)

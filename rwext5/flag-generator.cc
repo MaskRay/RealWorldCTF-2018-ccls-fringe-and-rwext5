@@ -12,7 +12,10 @@ int main() {
   vector<char> plain(bs * 1111);
   for (char &b: plain)
     b = dis(gen);
-  const char s[] = "The flag is rwctf{ext4 adds extent tree to ext3}";
+  const char s[] = R"(Congratulation! Now you see what I've learned this year.
+I hope you enjoy solving this challenge.
+
+The flag is rwctf{ext4 adds extent tree to ext3})";
   copy(begin(s), end(s)-1, &plain[bs * 555]);
   for (char b : plain) cout << b;
 }

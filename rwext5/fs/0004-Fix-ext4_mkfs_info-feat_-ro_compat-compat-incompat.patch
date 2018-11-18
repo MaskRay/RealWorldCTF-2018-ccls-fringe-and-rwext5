@@ -1,7 +1,7 @@
-From 62e4c443c5b9611b9f405f51e92af1593cbb5b3c Mon Sep 17 00:00:00 2001
+From c0a65cfa66ae81c0f7477d9b4ba439e01633ca5d Mon Sep 17 00:00:00 2001
 From: Fangrui Song
 Date: Sat, 17 Nov 2018 22:30:16 -0800
-Subject: [PATCH 3/6] Fix ext4_mkfs_info::feat_{ro_compat,compat,incompat}
+Subject: [PATCH 4/7] Fix ext4_mkfs_info::feat_{ro_compat,compat,incompat}
 
 ---
  include/ext4_mkfs.h | 6 +++---

@@ -1,0 +1,175 @@
+[
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win    -o fs_test/CMakeFiles/lwext4-client.dir/lwext4_client.c.o   -c /home/ray/lwext4/fs_test/lwext4_client.c",
+  "file": "/home/ray/lwext4/fs_test/lwext4_client.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win    -o fs_test/CMakeFiles/lwext4-mbr.dir/lwext4_mbr.c.o   -c /home/ray/lwext4/fs_test/lwext4_mbr.c",
+  "file": "/home/ray/lwext4/fs_test/lwext4_mbr.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win    -o fs_test/CMakeFiles/lwext4-server.dir/lwext4_server.c.o   -c /home/ray/lwext4/fs_test/lwext4_server.c",
+  "file": "/home/ray/lwext4/fs_test/lwext4_server.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win    -o fs_test/CMakeFiles/lwext4-generic.dir/lwext4_generic.c.o   -c /home/ray/lwext4/fs_test/lwext4_generic.c",
+  "file": "/home/ray/lwext4/fs_test/lwext4_generic.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win    -o fs_test/CMakeFiles/lwext4-generic.dir/common/test_lwext4.c.o   -c /home/ray/lwext4/fs_test/common/test_lwext4.c",
+  "file": "/home/ray/lwext4/fs_test/common/test_lwext4.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win    -o fs_test/CMakeFiles/lwext4-mkfs.dir/lwext4_mkfs.c.o   -c /home/ray/lwext4/fs_test/lwext4_mkfs.c",
+  "file": "/home/ray/lwext4/fs_test/lwext4_mkfs.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win    -o blockdev/CMakeFiles/blockdev.dir/linux/file_dev.c.o   -c /home/ray/lwext4/blockdev/linux/file_dev.c",
+  "file": "/home/ray/lwext4/blockdev/linux/file_dev.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win    -o blockdev/CMakeFiles/blockdev.dir/blockdev.c.o   -c /home/ray/lwext4/blockdev/blockdev.c",
+  "file": "/home/ray/lwext4/blockdev/blockdev.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4.c.o   -c /home/ray/lwext4/src/ext4.c",
+  "file": "/home/ray/lwext4/src/ext4.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_balloc.c.o   -c /home/ray/lwext4/src/ext4_balloc.c",
+  "file": "/home/ray/lwext4/src/ext4_balloc.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_bcache.c.o   -c /home/ray/lwext4/src/ext4_bcache.c",
+  "file": "/home/ray/lwext4/src/ext4_bcache.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_bitmap.c.o   -c /home/ray/lwext4/src/ext4_bitmap.c",
+  "file": "/home/ray/lwext4/src/ext4_bitmap.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_block_group.c.o   -c /home/ray/lwext4/src/ext4_block_group.c",
+  "file": "/home/ray/lwext4/src/ext4_block_group.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_blockdev.c.o   -c /home/ray/lwext4/src/ext4_blockdev.c",
+  "file": "/home/ray/lwext4/src/ext4_blockdev.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_crc32.c.o   -c /home/ray/lwext4/src/ext4_crc32.c",
+  "file": "/home/ray/lwext4/src/ext4_crc32.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_debug.c.o   -c /home/ray/lwext4/src/ext4_debug.c",
+  "file": "/home/ray/lwext4/src/ext4_debug.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_dir.c.o   -c /home/ray/lwext4/src/ext4_dir.c",
+  "file": "/home/ray/lwext4/src/ext4_dir.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_dir_idx.c.o   -c /home/ray/lwext4/src/ext4_dir_idx.c",
+  "file": "/home/ray/lwext4/src/ext4_dir_idx.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_extent.c.o   -c /home/ray/lwext4/src/ext4_extent.c",
+  "file": "/home/ray/lwext4/src/ext4_extent.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_fs.c.o   -c /home/ray/lwext4/src/ext4_fs.c",
+  "file": "/home/ray/lwext4/src/ext4_fs.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_hash.c.o   -c /home/ray/lwext4/src/ext4_hash.c",
+  "file": "/home/ray/lwext4/src/ext4_hash.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_ialloc.c.o   -c /home/ray/lwext4/src/ext4_ialloc.c",
+  "file": "/home/ray/lwext4/src/ext4_ialloc.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_inode.c.o   -c /home/ray/lwext4/src/ext4_inode.c",
+  "file": "/home/ray/lwext4/src/ext4_inode.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_journal.c.o   -c /home/ray/lwext4/src/ext4_journal.c",
+  "file": "/home/ray/lwext4/src/ext4_journal.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_mbr.c.o   -c /home/ray/lwext4/src/ext4_mbr.c",
+  "file": "/home/ray/lwext4/src/ext4_mbr.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_mkfs.c.o   -c /home/ray/lwext4/src/ext4_mkfs.c",
+  "file": "/home/ray/lwext4/src/ext4_mkfs.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_super.c.o   -c /home/ray/lwext4/src/ext4_super.c",
+  "file": "/home/ray/lwext4/src/ext4_super.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_trans.c.o   -c /home/ray/lwext4/src/ext4_trans.c",
+  "file": "/home/ray/lwext4/src/ext4_trans.c"
+},
+
+{
+  "directory": "/home/ray/lwext4/Debug",
+  "command": "/usr/bin/cc -DCONFIG_BLOCK_DEV_CACHE_SIZE=16 -DCONFIG_HAVE_OWN_ASSERT=0 -DCONFIG_HAVE_OWN_ERRNO=0 -DCONFIG_HAVE_OWN_OFLAGS=0 -DCONFIG_USE_DEFAULT_CONFIG=0 -DVERSION=\\\"\\\" -Iinclude -I../blockdev/filedev -I../blockdev/filedev_win -I../src/.    -Wall -Wextra -pedantic -o src/CMakeFiles/lwext4.dir/ext4_xattr.c.o   -c /home/ray/lwext4/src/ext4_xattr.c",
+  "file": "/home/ray/lwext4/src/ext4_xattr.c"
+}
+]
