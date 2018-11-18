@@ -8,7 +8,7 @@ clean:
 	$(RM) $(image) bin/rwext5-cat bin/rwext5-import bin/rwext5-mkfs flag-generator
 
 test:
-	bin/rwext5-cat $(image) home/ray/flag | cmp fs/flag -
+	bin/rwext5-cat $(image) ray/flag | cmp fs/flag -
 
 $(image): bin/rwext5-mkfs bin/rwext5-import fs/flag
 	dd if=/dev/urandom of=$@ bs=1M count=4 status=none
@@ -16,6 +16,7 @@ $(image): bin/rwext5-mkfs bin/rwext5-import fs/flag
 	bin/rwext5-import $@ fs/flag ray/flag
 	# lwext4 master checked out at $PWD/lwext4
 	git --work-tree=lwext4 --git-dir=lwext4/.git ls-files | xargs -i bin/rwext5-import $@ lwext4/{} ray/lwext4/{}
+	ls fs/*.patch | xargs -i bin/rwext5-import $@ {} ray/lwext4/{}
 
 fs/flag: fs/flag.plain
 	openssl enc -aes-128-cbc -pass pass:filesystem -in $< -out $@

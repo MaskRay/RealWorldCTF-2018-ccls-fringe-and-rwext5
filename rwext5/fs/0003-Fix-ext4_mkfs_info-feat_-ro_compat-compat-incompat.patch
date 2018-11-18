@@ -1,0 +1,29 @@
+From 62e4c443c5b9611b9f405f51e92af1593cbb5b3c Mon Sep 17 00:00:00 2001
+From: Fangrui Song
+Date: Sat, 17 Nov 2018 22:30:16 -0800
+Subject: [PATCH 3/6] Fix ext4_mkfs_info::feat_{ro_compat,compat,incompat}
+
+---
+ include/ext4_mkfs.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/include/ext4_mkfs.h b/include/ext4_mkfs.h
+index 53f1820..aadedb0 100644
+--- a/include/ext4_mkfs.h
++++ b/include/ext4_mkfs.h
+@@ -58,9 +58,9 @@ struct ext4_mkfs_info {
+ 	uint32_t inode_size;
+ 	uint32_t inodes;
+ 	uint32_t journal_blocks;
+-	uint16_t feat_ro_compat;
+-	uint16_t feat_compat;
+-	uint16_t feat_incompat;
++	uint32_t feat_ro_compat;
++	uint32_t feat_compat;
++	uint32_t feat_incompat;
+ 	uint32_t bg_desc_reserve_blocks;
+ 	uint16_t dsc_size;
+ 	uint8_t uuid[UUID_SIZE];
+-- 
+2.19.1
+
