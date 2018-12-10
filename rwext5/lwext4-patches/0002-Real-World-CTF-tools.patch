@@ -1,0 +1,239 @@
+From 33b610e030466d29f7648ab4a7bc45cff0908393 Mon Sep 17 00:00:00 2001
+From: Fangrui Song <i@maskray.me>
+Date: Sun, 18 Nov 2018 11:28:46 -0800
+Subject: [PATCH 2/3] Real World CTF: tools
+
+---
+ fs_test/CMakeLists.txt  | 63 +++++++++++++++++++++++++----------------
+ fs_test/rwext5-cat.c    | 54 +++++++++++++++++++++++++++++++++++
+ fs_test/rwext5-import.c | 53 ++++++++++++++++++++++++++++++++++
+ fs_test/rwext5-mkfs.c   | 21 ++++++++++++++
+ 4 files changed, 166 insertions(+), 25 deletions(-)
+ create mode 100644 fs_test/rwext5-cat.c
+ create mode 100644 fs_test/rwext5-import.c
+ create mode 100644 fs_test/rwext5-mkfs.c
+
+diff --git a/fs_test/CMakeLists.txt b/fs_test/CMakeLists.txt
+index 84760cf..4e5bdbd 100644
+--- a/fs_test/CMakeLists.txt
++++ b/fs_test/CMakeLists.txt
+@@ -1,32 +1,45 @@
+-#fs_test executables
+-add_executable(lwext4-server lwext4_server.c)
+-target_link_libraries(lwext4-server lwext4)
+-target_link_libraries(lwext4-server blockdev)
+-if(WIN32)
+-target_link_libraries(lwext4-server ws2_32)
+-endif(WIN32)
+-add_executable(lwext4-client lwext4_client.c)
+-target_link_libraries(lwext4-client lwext4)
+-if(WIN32)
+-target_link_libraries(lwext4-client ws2_32)
+-endif(WIN32)
++##fs_test executables
++#add_executable(lwext4-server lwext4_server.c)
++#target_link_libraries(lwext4-server lwext4)
++#target_link_libraries(lwext4-server blockdev)
++#if(WIN32)
++#target_link_libraries(lwext4-server ws2_32)
++#endif(WIN32)
++#add_executable(lwext4-client lwext4_client.c)
++#target_link_libraries(lwext4-client lwext4)
++#if(WIN32)
++#target_link_libraries(lwext4-client ws2_32)
++#endif(WIN32)
+ 
+-aux_source_directory(common COMMON_SRC)
+-add_executable(lwext4-generic lwext4_generic.c ${COMMON_SRC})
+-target_link_libraries(lwext4-generic blockdev)
+-target_link_libraries(lwext4-generic lwext4)
++#aux_source_directory(common COMMON_SRC)
++#add_executable(lwext4-generic lwext4_generic.c ${COMMON_SRC})
++#target_link_libraries(lwext4-generic blockdev)
++#target_link_libraries(lwext4-generic lwext4)
+ 
+ add_executable(lwext4-mkfs lwext4_mkfs.c)
+ target_link_libraries(lwext4-mkfs blockdev)
+ target_link_libraries(lwext4-mkfs lwext4)
+ 
+-add_executable(lwext4-mbr lwext4_mbr.c)
+-target_link_libraries(lwext4-mbr blockdev)
+-target_link_libraries(lwext4-mbr lwext4)
+-
+-install (TARGETS lwext4-server DESTINATION /usr/bin)
+-install (TARGETS lwext4-client DESTINATION /usr/bin)
+-install (TARGETS lwext4-generic DESTINATION /usr/bin)
+-install (TARGETS lwext4-mkfs DESTINATION /usr/bin)
+-install (TARGETS lwext4-mbr DESTINATION /usr/bin)
++#add_executable(lwext4-mbr lwext4_mbr.c)
++#target_link_libraries(lwext4-mbr blockdev)
++#target_link_libraries(lwext4-mbr lwext4)
++
++add_executable(rwext5-mkfs rwext5-mkfs.c)
++target_link_libraries(rwext5-mkfs blockdev)
++target_link_libraries(rwext5-mkfs lwext4)
++
++add_executable(rwext5-import rwext5-import.c)
++target_link_libraries(rwext5-import blockdev)
++target_link_libraries(rwext5-import lwext4)
++
++add_executable(rwext5-cat rwext5-cat.c)
++target_link_libraries(rwext5-cat blockdev)
++target_link_libraries(rwext5-cat lwext4)
++set_property(TARGET rwext5-cat PROPERTY ENABLE_EXPORTS false)
++
++#install (TARGETS lwext4-server DESTINATION /usr/bin)
++#install (TARGETS lwext4-client DESTINATION /usr/bin)
++#install (TARGETS lwext4-generic DESTINATION /usr/bin)
++#install (TARGETS lwext4-mkfs DESTINATION /usr/bin)
++#install (TARGETS lwext4-mbr DESTINATION /usr/bin)
+ 
+diff --git a/fs_test/rwext5-cat.c b/fs_test/rwext5-cat.c
+new file mode 100644
+index 0000000..2d61f29
+--- /dev/null
++++ b/fs_test/rwext5-cat.c
+@@ -0,0 +1,54 @@
++#ifndef _GNU_SOURCE
++# define _GNU_SOURCE 1
++#endif
++
++#include "../blockdev/linux/file_dev.h"
++#include "ext4.h"
++
++#include <err.h>
++#include <errno.h>
++#include <getopt.h>
++#include <stdio.h>
++#include <string.h>
++#include <unistd.h>
++
++int main(int argc, char *argv[]) {
++  if (argc != 3) {
++    fprintf(stderr, "Usage: %s device device-path\n",
++      program_invocation_short_name);
++    return 1;
++  }
++  int r;
++  file_dev_name_set(argv[1]);
++  struct ext4_blockdev *bd = file_dev_get();
++  if (ext4_device_register(bd, "ext4_fs"))
++    return 2;
++  if (ext4_mount("ext4_fs", "/mp/", false))
++    return 2;
++  r = ext4_recover("/mp/");
++  if (r && r != ENOTSUP)
++    return 2;
++  if (ext4_journal_start("/mp/"))
++    return 2;
++
++  char path[256], buf[4096];
++  size_t rsize;
++  snprintf(path, sizeof path, "/mp/%s", argv[2]);
++  ext4_file f;
++  r = ext4_fopen(&f, path, "rb");
++  if (r)
++    warnx("ext4_fopen: %s", strerror(r));
++  else {
++    while (!(r = ext4_fread(&f, buf, sizeof buf, &rsize)) &&
++           rsize > 0)
++      fwrite(buf, 1, rsize, stdout);
++    if (r)
++      perror("ext4_fread");
++    ext4_fclose(&f);
++  }
++
++  if (ext4_journal_stop("/mp/"))
++    return 2;
++  if (ext4_umount("/mp/"))
++    return 2;
++}
+diff --git a/fs_test/rwext5-import.c b/fs_test/rwext5-import.c
+new file mode 100644
+index 0000000..0dc4be1
+--- /dev/null
++++ b/fs_test/rwext5-import.c
+@@ -0,0 +1,53 @@
++#ifndef _GNU_SOURCE
++# define _GNU_SOURCE 1
++#endif
++
++#include "../blockdev/linux/file_dev.h"
++
++#include <errno.h>
++#include <ext4.h>
++#include <getopt.h>
++#include <unistd.h>
++
++int main(int argc, char *argv[]) {
++  if (argc < 2) {
++    fprintf(stderr,
++      "Usage: %s device [native-fs-path device-path]...\n",
++      program_invocation_short_name);
++    return 1;
++  }
++  int r;
++  file_dev_name_set(argv[1]);
++  struct ext4_blockdev *bd = file_dev_get();
++  if (ext4_device_register(bd, "ext4_fs"))
++    return 2;
++  if (ext4_mount("ext4_fs", "/mp/", false))
++    return 2;
++  r = ext4_recover("/mp/");
++  if (r && r != ENOTSUP)
++    return 2;
++  if (ext4_journal_start("/mp/"))
++    return 2;
++  ext4_cache_write_back("/mp/", 1);
++
++  for (int i = 2; i < argc; i += 2) {
++    size_t w;
++    char path[256], buf[4096];
++    FILE *fp = fopen(argv[i], "rb");
++    if (!fp)
++      return 2;
++    snprintf(path, sizeof path, "/mp/%s", argv[i + 1]);
++    ext4_file f;
++    ext4_fopen(&f, path, "wb");
++    while ((r = fread(buf, 1, sizeof buf, fp)) > 0)
++      if (ext4_fwrite(&f, buf, r, &w) || w != r)
++        return perror("ext4_fwrite"), 2;
++    fclose(fp);
++  }
++
++  ext4_cache_write_back("/mp/", 0);
++  if (ext4_journal_stop("/mp/"))
++    return 2;
++  if (ext4_umount("/mp/"))
++    return 2;
++}
+diff --git a/fs_test/rwext5-mkfs.c b/fs_test/rwext5-mkfs.c
+new file mode 100644
+index 0000000..16afa73
+--- /dev/null
++++ b/fs_test/rwext5-mkfs.c
+@@ -0,0 +1,21 @@
++#ifndef _GNU_SOURCE
++# define _GNU_SOURCE 1
++#endif
++#include "../blockdev/linux/file_dev.h"
++#include <ext4.h>
++#include <ext4_mkfs.h>
++
++int main(int argc, char *argv[])
++{
++  if (argc != 2) {
++    fprintf(stderr, "Usage: %s device\n", program_invocation_short_name);
++    return 1;
++  }
++  file_dev_name_set(argv[1]);
++  struct ext4_fs fs = {};
++  struct ext4_mkfs_info info = {
++      .block_size = 1024,
++      .journal = true,
++  };
++  return ext4_mkfs(&fs, file_dev_get(), &info, F_SET_EXT4);
++}
+-- 
+2.19.2
+

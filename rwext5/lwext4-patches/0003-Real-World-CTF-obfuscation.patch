@@ -1,0 +1,85 @@
+From f29a3de501a9d3f40ca87f3f9cf95f0f2703f1c5 Mon Sep 17 00:00:00 2001
+From: Fangrui Song <i@maskray.me>
+Date: Sun, 18 Nov 2018 09:25:07 -0800
+Subject: [PATCH 3/3] Real World CTF: obfuscation
+
+---
+ include/ext4_types.h | 14 +++++++++-----
+ src/ext4_extent.c    |  9 +++++----
+ 2 files changed, 14 insertions(+), 9 deletions(-)
+
+diff --git a/include/ext4_types.h b/include/ext4_types.h
+index c9cdd34..a4c5050 100644
+--- a/include/ext4_types.h
++++ b/include/ext4_types.h
+@@ -78,9 +78,10 @@ struct ext4_sblock {
+ 	uint32_t first_data_block;	 /* First Data Block */
+ 	uint32_t log_block_size;	   /* Block size */
+ 	uint32_t log_cluster_size;	 /* Obsoleted fragment size */
+-	uint32_t blocks_per_group;	 /* Number of blocks per group */
+-	uint32_t frags_per_group;	  /* Obsoleted fragments per group */
++	// CTF swap
+ 	uint32_t inodes_per_group;	 /* Number of inodes per group */
++	uint32_t frags_per_group;	  /* Obsoleted fragments per group */
++	uint32_t blocks_per_group;	 /* Number of blocks per group */
+ 	uint32_t mount_time;		   /* Mount time */
+ 	uint32_t write_time;		   /* Write time */
+ 	uint16_t mount_count;		   /* Mount count */
+@@ -245,6 +246,8 @@ struct ext4_sblock {
+ #define EXT4_FINCOM_MMP 0x0100
+ #define EXT4_FINCOM_FLEX_BG 0x0200
+ #define EXT4_FINCOM_EA_INODE 0x0400	 /* EA in inode */
++// CTF
++#define EXT4_FINCOM_CTF 0x800
+ #define EXT4_FINCOM_DIRDATA 0x1000	  /* data in dirent */
+ #define EXT4_FINCOM_BG_USE_META_CSUM 0x2000 /* use crc32c for bg */
+ #define EXT4_FINCOM_LARGEDIR 0x4000	 /* >2GB or 3-lvl htree */
+@@ -281,7 +284,7 @@ struct ext4_sblock {
+ #define EXT4_SUPPORTED_FINCOM                              \
+ 	(EXT4_FINCOM_FILETYPE | EXT4_FINCOM_META_BG |      \
+ 	 EXT4_FINCOM_EXTENTS | EXT4_FINCOM_FLEX_BG |       \
+-	 EXT4_FINCOM_64BIT)
++	 EXT4_FINCOM_64BIT | EXT4_FINCOM_CTF)
+ 
+ #define EXT4_SUPPORTED_FRO_COM                             \
+ 	(EXT4_FRO_COM_SPARSE_SUPER |                       \
+@@ -371,13 +374,14 @@ struct ext4_bgroup {
+  * Structure of an inode on the disk
+  */
+ struct ext4_inode {
+-	uint16_t mode;		    /* File mode */
+ 	uint16_t uid;		    /* Low 16 bits of owner uid */
+-	uint32_t size_lo;	   /* Size in bytes */
++	uint16_t mode;		    /* File mode */
++	// CTF
+ 	uint32_t access_time;       /* Access time */
+ 	uint32_t change_inode_time; /* I-node change time */
+ 	uint32_t modification_time; /* Modification time */
+ 	uint32_t deletion_time;     /* Deletion time */
++	uint32_t size_lo;	   /* Size in bytes */
+ 	uint16_t gid;		    /* Low 16 bits of group id */
+ 	uint16_t links_count;       /* Links count */
+ 	uint32_t blocks_count_lo;   /* Blocks count */
+diff --git a/src/ext4_extent.c b/src/ext4_extent.c
+index 791f8a7..375a2f6 100644
+--- a/src/ext4_extent.c
++++ b/src/ext4_extent.c
+@@ -92,10 +92,11 @@ struct ext4_extent_tail
+  * It's used at the bottom of the tree.
+  */
+ struct ext4_extent {
+-    uint32_t first_block; /* First logical block extent covers */
+-    uint16_t block_count; /* Number of blocks covered by extent */
+-    uint16_t start_hi;    /* High 16 bits of physical block */
+-    uint32_t start_lo;    /* Low 32 bits of physical block */
++	// CTF
++	uint16_t block_count; /* Number of blocks covered by extent */
++	uint16_t start_hi;    /* High 16 bits of physical block */
++	uint32_t start_lo;    /* Low 32 bits of physical block */
++	uint32_t first_block; /* First logical block extent covers */
+ };
+ 
+ /*
+-- 
+2.19.2
+
